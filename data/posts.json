@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "title": "Lorem Ipsum Dolor",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla varius, magna ut gravida dictum, velit neque accumsan justo, sed tristique mi nisi a erat.",
+        "author": "Jane Doe",
+        "date": "2024-06-09"
+    },
+    {
+        "id": 2,
+        "title": "Second Post Example",
+        "content": "Suspendisse potenti. Phasellus euismod eget lorem a egestas. Etiam dictum, risus ac pulvinar tincidunt, augue dolor mollis nisl, vitae placerat dolor turpis sit amet eros. Ut ullamcorper odio vel dui tempor, eget faucibus ex posuere.",
+        "author": "John Smith",
+        "date": "2024-06-07"
+    },
+    {
+        "id": 3,
+        "title": "Short Lipsum",
+        "content": "Quisque at leo eu risus dictum scelerisque.",
+        "author": "Alice Johnson",
+        "date": "2024-06-05"
+    },
+    {
+        "id": 4,
+        "title": "Morbi aliquet est",
+        "content": "Morbi aliquet est et sapien cursus, in dictum velit gravida. Etiam porttitor sem ut sapien dictum, in dictum arcu dictum. Pellentesque nec augue et lacus pretium suscipit nec at lacus. In gravida quam vitae lacus tempor, ac pretium erat posuere.",
+        "author": "Michael Brown",
+        "date": "2024-06-03"
+    },
+    {
+        "id": 5,
+        "title": "Vestibulum nec",
+        "content": "Vestibulum nec nisi sed nisi pretium tincidunt. Proin ut laoreet mi. In non mi efficitur, commodo augue nec, euismod sem. Mauris volutpat metus nec mauris pretium, eu dictum leo porta. Sed nec sapien et sapien dictum interdum. Vivamus pretium, nunc vitae feugiat sodales, urna quam porta justo, vitae tempus mi purus in enim. Pellentesque sit amet mi ex.",
+        "author": "Emma White",
+        "date": "2024-06-01"
+    },
+    {
+        "id": 6,
+        "title": "Test Post",
+        "content": "123",
+        "author": "A",
+        "date": "2026-02-01"
+    }
+]

@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>All Posts</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f7f7f7; margin: 0; padding: 0; }
+        .container { max-width: 900px; margin: 30px auto; }
+        .posts-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            margin: 0 -8px;
+            justify-content: flex-start;
+        }
+        .post-card {
+            background: #fff;
+            border-radius: 7px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.09);
+            padding: 20px 18px 16px 18px;
+            margin: 8px 0;
+            width: 280px;
+            min-height: 120px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: box-shadow 0.18s, transform 0.18s;
+        }
+        .post-card:hover {
+            box-shadow: 0 4px 18px rgba(0,0,0,0.17);
+            transform: translateY(-4px) scale(1.025);
+        }
+        .post-title { 
+            font-size: 1.18em; 
+            font-weight: bold; 
+            margin-bottom: 7px;
+            color: #273c75;
+        }
+        .post-excerpt { 
+            color: #444; 
+            margin-bottom: 9px; 
+        }
+        .post-meta { 
+            font-size: 0.97em; 
+            color: #888; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="margin-bottom:18px;">All Posts</h1>
+                <div class="posts-grid">
+                            <div class="post-card">
+                    <div>
+                        <div class="post-title">
+                            Lorem Ipsum Dolor                        </div>
+                        <div class="post-excerpt">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla varius, magna ut &amp;hellip;                        </div>
+                    </div>
+                    <div class="post-meta">
+                        By Jane Doe 
+                        on 2024-06-09                    </div>
+                </div>
+                            <div class="post-card">
+                    <div>
+                        <div class="post-title">
+                            Second Post Example                        </div>
+                        <div class="post-excerpt">
+                            Suspendisse potenti. Phasellus euismod eget lorem a egestas. Etiam dictum, risus&amp;hellip;                        </div>
+                    </div>
+                    <div class="post-meta">
+                        By John Smith 
+                        on 2024-06-07                    </div>
+                </div>
+                            <div class="post-card">
+                    <div>
+                        <div class="post-title">
+                            Short Lipsum                        </div>
+                        <div class="post-excerpt">
+                            Quisque at leo eu risus dictum scelerisque.                        </div>
+                    </div>
+                    <div class="post-meta">
+                        By Alice Johnson 
+                        on 2024-06-05                    </div>
+                </div>
+                            <div class="post-card">
+                    <div>
+                        <div class="post-title">
+                            Morbi aliquet est                        </div>
+                        <div class="post-excerpt">
+                            Morbi aliquet est et sapien cursus, in dictum velit gravida. Etiam porttitor sem&amp;hellip;                        </div>
+                    </div>
+                    <div class="post-meta">
+                        By Michael Brown 
+                        on 2024-06-03                    </div>
+                </div>
+                            <div class="post-card">
+                    <div>
+                        <div class="post-title">
+                            Vestibulum nec                        </div>
+                        <div class="post-excerpt">
+                            Vestibulum nec nisi sed nisi pretium tincidunt. Proin ut laoreet mi. In non mi e&amp;hellip;                        </div>
+                    </div>
+                    <div class="post-meta">
+                        By Emma White 
+                        on 2024-06-01                    </div>
+                </div>
+                            <div class="post-card">
+                    <div>
+                        <div class="post-title">
+                            Test Post                        </div>
+                        <div class="post-excerpt">
+                            123                        </div>
+                    </div>
+                    <div class="post-meta">
+                        By A 
+                        on 2026-02-01                    </div>
+                </div>
+                    </div>
+            </div>
+</body>
+</html>
+
