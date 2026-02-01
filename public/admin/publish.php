@@ -1,9 +1,13 @@
 <?php
-define("ABSPATH", dirname(__DIR__, 2));
+require_once __DIR__ . '/../../src/Autoloader.php';
 
-require_once ABSPATH . '/app/Build.php';
+use StackPress\Config\Config;
+use StackPress\Controller\BuildController;
 
-(new Build())->execute();
+Config::getInstance();
+
+$controller = new BuildController();
+$controller->build();
 
 header('Location: /public/admin/index.php');
 exit;

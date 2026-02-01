@@ -1,58 +1,40 @@
 
 <?php
-define("ABSPATH", dirname(__DIR__, 2));
+require_once __DIR__ . '/../../src/Autoloader.php';
 
-// Optionally check for admin authentication here
+use StackPress\Config\Config;
+use StackPress\Controller\PostController;
 
+Config::getInstance();
 require_once __DIR__ . '/common/header.php';
 
-// Handle delete operation
+$controller = new PostController();
 $deleteSuccess = '';
 $deleteError = '';
-$postsFile = ABSPATH . '/data/posts.json';
 
-// Handle post deletion
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
     $deleteId = intval($_POST['delete_id']);
-    if (file_exists($postsFile)) {
-        $json = file_get_contents($postsFile);
-        $posts = json_decode($json, true);
-
-        $found = false;
-        foreach ($posts as $idx => $p) {
-            if ($p['id'] == $deleteId) {
-                $found = true;
-                array_splice($posts, $idx, 1);
-                break;
-            }
-        }
-        if ($found) {
-            if (file_put_contents($postsFile, json_encode($posts, JSON_PRETTY_PRINT))) {
-                $deleteSuccess = "Post #$deleteId deleted successfully.";
-            } else {
-                $deleteError = "Error saving changes to posts file.";
-            }
+    
+    try {
+        if ($controller->delete($deleteId)) {
+            $deleteSuccess = "Post #$deleteId deleted successfully.";
         } else {
             $deleteError = "Post not found or already deleted.";
         }
-    } else {
-        $deleteError = "Posts file not found.";
+    } catch (Exception $e) {
+        $deleteError = "Error: " . $e->getMessage();
     }
 }
 
-// Reload posts list after possible deletion
-$posts = [];
-if (file_exists($postsFile)) {
-    $json = file_get_contents($postsFile);
-    $posts = json_decode($json, true);
-}
+$data = $controller->index();
+$posts = array_map(fn($p) => $p->toArray(), $data['posts']);
 ?>
 <main class="admin-dashboard">
     <h2>All Posts</h2>
     <p>
-        <a class="admin-btn" href="/public/admin/form.php" style="padding:4px 14px;border-radius:4px;background:#27ae60;color:#fff;text-decoration:none;">+ New Post</a>
-        <a class="admin-btn" href="/public/admin/publish.php" style="padding:4px 14px;border-radius:4px;background:#27ae60;color:#fff;text-decoration:none;">Publish</a>
-        <a class="admin-btn" href="/public/build/index.html" target="_blank" style="padding:4px 14px;border-radius:4px;background:#27ae60;color:#fff;text-decoration:none;">View Site</a>
+        <a class="admin-btn admin-btn-success" href="/public/admin/form.php">+ New Post</a>
+        <a class="admin-btn admin-btn-success" href="/public/admin/publish.php">Publish</a>
+        <a class="admin-btn admin-btn-primary" href="/public/build/index.html" target="_blank">View Site</a>
     </p>
     <?php if (!empty($deleteSuccess)): ?>
         <div class="admin-message success"><?php echo htmlspecialchars($deleteSuccess); ?></div>
@@ -95,10 +77,10 @@ if (file_exists($postsFile)) {
                     <td><?php echo htmlspecialchars($post['author']); ?></td>
                     <td><?php echo htmlspecialchars($post['date']); ?></td>
                     <td>
-                        <a href="/public/admin/form.php?id=<?php echo urlencode($post['id']); ?>" class="admin-action-btn" style="padding:2px 8px;background:#2980b9;color:#fff;text-decoration:none;border-radius:3px;">Edit</a>
+                        <a href="/public/admin/form.php?id=<?php echo urlencode($post['id']); ?>" class="admin-action-btn edit">Edit</a>
                         <form method="post" action="" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this post?');">
                             <input type="hidden" name="delete_id" value="<?php echo htmlspecialchars($post['id']); ?>">
-                            <button type="submit" class="admin-action-btn" style="background:#c33;color:#fff;padding:2px 8px;border:none;border-radius:3px;cursor:pointer;">Delete</button>
+                            <button type="submit" class="admin-action-btn delete">Delete</button>
                         </form>
                     </td>
                 </tr>

@@ -1,5 +1,5 @@
     <footer>
-        <p>&copy; <?php echo date("Y"); ?> Stackpress Admin Panel. All rights reserved.</p>
+        <p>&copy; <?php echo date("Y"); ?> StackPress. All rights reserved.</p>
     </footer>
 </body>
 </html>
